@@ -5,10 +5,10 @@ import (
 	"strings"
 	"testing"
 
-	conf "github.com/alibaba/MongoShake/v2/collector/configure"
-	utils "github.com/alibaba/MongoShake/v2/common"
-	"github.com/alibaba/MongoShake/v2/oplog"
-	"github.com/alibaba/MongoShake/v2/unit_test_common"
+	conf "github.com/Jnoson/MongoShake/v2/collector/configure"
+	utils "github.com/Jnoson/MongoShake/v2/common"
+	"github.com/Jnoson/MongoShake/v2/oplog"
+	"github.com/Jnoson/MongoShake/v2/unit_test_common"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/vinllen/mgo"
@@ -338,7 +338,7 @@ func TestSingleWriter(t *testing.T) {
 			"x":   3,
 		}
 
-		// see https://github.com/alibaba/MongoShake/issues/380
+		// see https://github.com/Jnoson/MongoShake/issues/380
 		err = writer.doInsert(testDb, testCollection, bson.M{}, inserts2, true)
 		assert.NotEqual(t, nil, err, "should be equal")
 		assert.Equal(t, true, strings.Contains(err.Error(), "Must run update to shard key"), "should be equal")
@@ -752,7 +752,7 @@ func TestBulkWriter(t *testing.T) {
 			"x":   3,
 		}
 
-		// see https://github.com/alibaba/MongoShake/issues/380
+		// see https://github.com/Jnoson/MongoShake/issues/380
 		err = writer.doInsert(testDb, testCollection, bson.M{}, inserts2, true)
 		assert.NotEqual(t, nil, err, "should be equal")
 		assert.Equal(t, true, strings.Contains(err.Error(), "Must run update to shard key"), "should be equal")

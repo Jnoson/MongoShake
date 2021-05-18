@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/alibaba/MongoShake/v2/common"
-	"github.com/alibaba/MongoShake/v2/collector/configure"
-	"github.com/alibaba/MongoShake/v2/collector/ckpt"
-	"github.com/alibaba/MongoShake/v2/collector/reader"
+	"github.com/Jnoson/MongoShake/v2/collector/ckpt"
+	"github.com/Jnoson/MongoShake/v2/collector/configure"
+	"github.com/Jnoson/MongoShake/v2/collector/reader"
+	"github.com/Jnoson/MongoShake/v2/common"
 
-	"github.com/vinllen/mgo/bson"
 	LOG "github.com/vinllen/log4go"
+	"github.com/vinllen/mgo/bson"
 	bson2 "github.com/vinllen/mongo-go-driver/bson"
 )
 

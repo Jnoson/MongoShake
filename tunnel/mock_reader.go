@@ -3,7 +3,7 @@ package tunnel
 import (
 	"math/rand"
 
-	"github.com/alibaba/MongoShake/v2/oplog"
+	"github.com/Jnoson/MongoShake/v2/oplog"
 
 	"fmt"
 	"time"

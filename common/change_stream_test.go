@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/alibaba/MongoShake/v2/unit_test_common"
+	"github.com/Jnoson/MongoShake/v2/unit_test_common"
 	"github.com/stretchr/testify/assert"
 	"github.com/vinllen/mgo/bson"
 	"strings"

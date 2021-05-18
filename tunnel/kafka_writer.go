@@ -8,9 +8,9 @@ import (
 	"math"
 	"sync/atomic"
 
-	"github.com/alibaba/MongoShake/v2/collector/configure"
-	"github.com/alibaba/MongoShake/v2/tunnel/kafka"
-	"github.com/alibaba/MongoShake/v2/common"
+	"github.com/Jnoson/MongoShake/v2/collector/configure"
+	"github.com/Jnoson/MongoShake/v2/tunnel/kafka"
+	"github.com/Jnoson/MongoShake/v2/common"
 
 	LOG "github.com/vinllen/log4go"
 	bson2 "github.com/vinllen/mongo-go-driver/bson"

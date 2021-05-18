@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/alibaba/MongoShake/v2/oplog"
+	"github.com/Jnoson/MongoShake/v2/oplog"
 
 	LOG "github.com/vinllen/log4go"
 	"github.com/vinllen/mgo/bson"

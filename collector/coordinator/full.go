@@ -5,12 +5,12 @@ import (
 	"math"
 	"sync"
 
-	conf "github.com/alibaba/MongoShake/v2/collector/configure"
-	"github.com/alibaba/MongoShake/v2/collector/docsyncer"
-	"github.com/alibaba/MongoShake/v2/collector/filter"
-	"github.com/alibaba/MongoShake/v2/collector/transform"
-	utils "github.com/alibaba/MongoShake/v2/common"
-	"github.com/alibaba/MongoShake/v2/sharding"
+	conf "github.com/Jnoson/MongoShake/v2/collector/configure"
+	"github.com/Jnoson/MongoShake/v2/collector/docsyncer"
+	"github.com/Jnoson/MongoShake/v2/collector/filter"
+	"github.com/Jnoson/MongoShake/v2/collector/transform"
+	utils "github.com/Jnoson/MongoShake/v2/common"
+	"github.com/Jnoson/MongoShake/v2/sharding"
 
 	"github.com/gugemichael/nimo4go"
 	LOG "github.com/vinllen/log4go"

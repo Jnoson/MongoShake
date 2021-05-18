@@ -6,10 +6,10 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/alibaba/MongoShake/v2/collector"
-	conf "github.com/alibaba/MongoShake/v2/collector/configure"
-	utils "github.com/alibaba/MongoShake/v2/common"
-	"github.com/alibaba/MongoShake/v2/oplog"
+	"github.com/Jnoson/MongoShake/v2/collector"
+	conf "github.com/Jnoson/MongoShake/v2/collector/configure"
+	utils "github.com/Jnoson/MongoShake/v2/common"
+	"github.com/Jnoson/MongoShake/v2/oplog"
 
 	nimo "github.com/gugemichael/nimo4go"
 	LOG "github.com/vinllen/log4go"
@@ -128,7 +128,7 @@ func (coordinator *ReplicationCoordinator) sanitizeMongoDB() error {
 	for i, src := range coordinator.MongoD {
 		if conn, err = utils.NewMongoConn(src.URL, conf.Options.MongoConnectMode, true,
 			utils.ReadWriteConcernDefault, utils.ReadWriteConcernDefault); conn == nil || !conn.IsGood() || err != nil {
-			LOG.Critical("Connect mongo server error. %v, url : %s. See https://github.com/alibaba/MongoShake/wiki/FAQ#q-how-to-solve-the-oplog-tailer-initialize-failed-no-reachable-servers-error", err, src.URL)
+			LOG.Critical("Connect mongo server error. %v, url : %s. See https://github.com/Jnoson/MongoShake/wiki/FAQ#q-how-to-solve-the-oplog-tailer-initialize-failed-no-reachable-servers-error", err, src.URL)
 			return err
 		}
 
@@ -139,7 +139,7 @@ func (coordinator *ReplicationCoordinator) sanitizeMongoDB() error {
 			!conn.HasOplogNs() {
 			LOG.Critical("There has no oplog collection in mongo db server")
 			conn.Close()
-			return errors.New("no oplog ns in mongo. See https://github.com/alibaba/MongoShake/wiki/FAQ#q-how-to-solve-the-oplog-tailer-initialize-failed-no-oplog-ns-in-mongo-error")
+			return errors.New("no oplog ns in mongo. See https://github.com/Jnoson/MongoShake/wiki/FAQ#q-how-to-solve-the-oplog-tailer-initialize-failed-no-oplog-ns-in-mongo-error")
 		}
 
 		// check if there has dup server every replica set in RS or Shard
@@ -211,7 +211,7 @@ func (coordinator *ReplicationCoordinator) serializeDocumentOplog(fullBeginTs in
 
 		// the oldest oplog is lost
 		if utils.TimestampToInt64(oldestTs) >= val {
-			err = fmt.Errorf("incr sync ts[%v] is less than current oldest ts[%v], this error means user's " +
+			err = fmt.Errorf("incr sync ts[%v] is less than current oldest ts[%v], this error means user's "+
 				"oplog collection size is too small or full sync continues too long",
 				fullBegin, utils.ExtractTimestampForLog(oldestTs))
 			LOG.Error(err)
@@ -242,18 +242,18 @@ func (coordinator *ReplicationCoordinator) parallelDocumentOplog(fullBeginTs int
 		}
 		LOG.Info("------------------------full sync done!------------------------")
 		/*
-		// get current newest timestamp
-		endAllTsMap, _, _, _, _, err := utils.GetAllTimestamp(coordinator.Sources)
-		if err != nil {
-			docError = LOG.Critical("document replication get end timestamp failed[%v]", err)
-			return
-		}
-		for replset, endTs := range endAllTsMap {
-			beginTs := beginTsMap[replset]
-			LOG.Info("document replication replset %v beginTs[%v] endTs[%v]",
-				replset, utils.ExtractTs32(beginTs), utils.ExtractTs32(endTs.Newest))
-			docEndTsMap[replset] = endTs.Newest
-		}*/
+			// get current newest timestamp
+			endAllTsMap, _, _, _, _, err := utils.GetAllTimestamp(coordinator.Sources)
+			if err != nil {
+				docError = LOG.Critical("document replication get end timestamp failed[%v]", err)
+				return
+			}
+			for replset, endTs := range endAllTsMap {
+				beginTs := beginTsMap[replset]
+				LOG.Info("document replication replset %v beginTs[%v] endTs[%v]",
+					replset, utils.ExtractTs32(beginTs), utils.ExtractTs32(endTs.Newest))
+				docEndTsMap[replset] = endTs.Newest
+			}*/
 	})
 	// during document replication, oplog syncer fetch oplog and store on disk, in order to avoid oplog roll up
 	// fullSyncFinishPosition means no need to check the end time to disable DDL

@@ -9,10 +9,10 @@ import (
 	"strconv"
 	"syscall"
 
-	utils "github.com/alibaba/MongoShake/v2/common"
-	replayer "github.com/alibaba/MongoShake/v2/receiver"
-	conf "github.com/alibaba/MongoShake/v2/receiver/configure"
-	"github.com/alibaba/MongoShake/v2/tunnel"
+	utils "github.com/Jnoson/MongoShake/v2/common"
+	replayer "github.com/Jnoson/MongoShake/v2/receiver"
+	conf "github.com/Jnoson/MongoShake/v2/receiver/configure"
+	"github.com/Jnoson/MongoShake/v2/tunnel"
 
 	nimo "github.com/gugemichael/nimo4go"
 	LOG "github.com/vinllen/log4go"

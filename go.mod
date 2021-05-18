@@ -1,4 +1,4 @@
-module github.com/alibaba/MongoShake/v2
+module github.com/Jnoson/MongoShake/v2
 
 go 1.15
 

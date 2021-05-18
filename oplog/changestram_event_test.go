@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/alibaba/MongoShake/v2/unit_test_common"
+	"github.com/Jnoson/MongoShake/v2/unit_test_common"
 
 	nimo "github.com/gugemichael/nimo4go"
 	"github.com/stretchr/testify/assert"

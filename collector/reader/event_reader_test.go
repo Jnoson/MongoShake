@@ -1,19 +1,19 @@
 package sourceReader
 
 import (
-	"testing"
 	"fmt"
-	"time"
 	"sync"
+	"testing"
+	"time"
 
-	"github.com/alibaba/MongoShake/v2/unit_test_common"
-	"github.com/alibaba/MongoShake/v2/common"
-	"github.com/alibaba/MongoShake/v2/collector/configure"
-	"github.com/alibaba/MongoShake/v2/oplog"
+	"github.com/Jnoson/MongoShake/v2/collector/configure"
+	"github.com/Jnoson/MongoShake/v2/common"
+	"github.com/Jnoson/MongoShake/v2/oplog"
+	"github.com/Jnoson/MongoShake/v2/unit_test_common"
 
-	"github.com/vinllen/mongo-go-driver/bson"
-	bsonMgo "github.com/vinllen/mgo/bson"
 	"github.com/stretchr/testify/assert"
+	bsonMgo "github.com/vinllen/mgo/bson"
+	"github.com/vinllen/mongo-go-driver/bson"
 )
 
 const (
@@ -99,7 +99,7 @@ func TestEventReader(t *testing.T) {
 				assert.Equal(t, startIndex, innerVal, "should be equal")
 				fmt.Printf("match x[%v]\n", startIndex)
 				startIndex++
-				if startIndex >= cnt / 3 * 2 {
+				if startIndex >= cnt/3*2 {
 					break
 				}
 			}
@@ -107,7 +107,7 @@ func TestEventReader(t *testing.T) {
 
 		time.Sleep(10 * time.Second)
 		nr := 0
-		for i := 1; i <= cnt; i ++ {
+		for i := 1; i <= cnt; i++ {
 			var db string
 			switch i % 3 {
 			case 0:
@@ -206,7 +206,7 @@ func TestEventReader(t *testing.T) {
 		}()
 
 		time.Sleep(10 * time.Second)
-		for i := 1; i <= 100; i ++ {
+		for i := 1; i <= 100; i++ {
 			db := "db1"
 			_, err = conn.Client.Database(db).Collection("c1").InsertOne(nil, bson.M{"x": i})
 			assert.Equal(t, nil, err, "should be equal")

@@ -1,11 +1,11 @@
 package collector
 
 import (
-	conf "github.com/alibaba/MongoShake/v2/collector/configure"
-	utils "github.com/alibaba/MongoShake/v2/common"
-	module "github.com/alibaba/MongoShake/v2/modules"
-	"github.com/alibaba/MongoShake/v2/oplog"
-	"github.com/alibaba/MongoShake/v2/tunnel"
+	conf "github.com/Jnoson/MongoShake/v2/collector/configure"
+	utils "github.com/Jnoson/MongoShake/v2/common"
+	module "github.com/Jnoson/MongoShake/v2/modules"
+	"github.com/Jnoson/MongoShake/v2/oplog"
+	"github.com/Jnoson/MongoShake/v2/tunnel"
 )
 
 type WriteController struct {

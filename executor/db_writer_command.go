@@ -1,8 +1,8 @@
 package executor
 
 import (
-	conf "github.com/alibaba/MongoShake/v2/collector/configure"
-	"github.com/alibaba/MongoShake/v2/oplog"
+	conf "github.com/Jnoson/MongoShake/v2/collector/configure"
+	"github.com/Jnoson/MongoShake/v2/oplog"
 
 	LOG "github.com/vinllen/log4go"
 	"github.com/vinllen/mgo"

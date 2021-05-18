@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/alibaba/MongoShake/v2/collector/ckpt"
-	conf "github.com/alibaba/MongoShake/v2/collector/configure"
-	"github.com/alibaba/MongoShake/v2/collector/filter"
-	sourceReader "github.com/alibaba/MongoShake/v2/collector/reader"
-	utils "github.com/alibaba/MongoShake/v2/common"
-	"github.com/alibaba/MongoShake/v2/oplog"
-	"github.com/alibaba/MongoShake/v2/quorum"
+	"github.com/Jnoson/MongoShake/v2/collector/ckpt"
+	conf "github.com/Jnoson/MongoShake/v2/collector/configure"
+	"github.com/Jnoson/MongoShake/v2/collector/filter"
+	sourceReader "github.com/Jnoson/MongoShake/v2/collector/reader"
+	utils "github.com/Jnoson/MongoShake/v2/common"
+	"github.com/Jnoson/MongoShake/v2/oplog"
+	"github.com/Jnoson/MongoShake/v2/quorum"
 
 	"strings"
 

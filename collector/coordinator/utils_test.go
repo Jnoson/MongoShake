@@ -4,17 +4,17 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/alibaba/MongoShake/v2/collector/ckpt"
-	conf "github.com/alibaba/MongoShake/v2/collector/configure"
-	utils "github.com/alibaba/MongoShake/v2/common"
-	"github.com/alibaba/MongoShake/v2/unit_test_common"
+	"github.com/Jnoson/MongoShake/v2/collector/ckpt"
+	conf "github.com/Jnoson/MongoShake/v2/collector/configure"
+	utils "github.com/Jnoson/MongoShake/v2/common"
+	"github.com/Jnoson/MongoShake/v2/unit_test_common"
 
+	"context"
 	"github.com/stretchr/testify/assert"
 	"github.com/vinllen/mgo/bson"
-	"context"
+	bson2 "github.com/vinllen/mongo-go-driver/bson"
 	"github.com/vinllen/mongo-go-driver/mongo"
 	"github.com/vinllen/mongo-go-driver/mongo/options"
-	bson2 "github.com/vinllen/mongo-go-driver/bson"
 	"strings"
 )
 
@@ -624,7 +624,6 @@ func TestSelectSyncMode(t *testing.T) {
 		assert.Equal(t, utils.VarSyncModeIncr, mode, "should be equal")
 		assert.Equal(t, int64(0), ts, "should be equal")
 	}
-
 
 	// aliyun_serverless, no-checkpoint
 	{

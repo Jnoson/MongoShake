@@ -1,10 +1,10 @@
 package replayer
 
 import (
-	utils "github.com/alibaba/MongoShake/v2/common"
-	module "github.com/alibaba/MongoShake/v2/modules"
-	"github.com/alibaba/MongoShake/v2/oplog"
-	"github.com/alibaba/MongoShake/v2/tunnel"
+	utils "github.com/Jnoson/MongoShake/v2/common"
+	module "github.com/Jnoson/MongoShake/v2/modules"
+	"github.com/Jnoson/MongoShake/v2/oplog"
+	"github.com/Jnoson/MongoShake/v2/tunnel"
 
 	LOG "github.com/vinllen/log4go"
 	"github.com/vinllen/mgo/bson"

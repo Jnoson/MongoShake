@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	utils "github.com/alibaba/MongoShake/v2/common"
-	"github.com/alibaba/MongoShake/v2/oplog"
+	utils "github.com/Jnoson/MongoShake/v2/common"
+	"github.com/Jnoson/MongoShake/v2/oplog"
 
 	"reflect"
 

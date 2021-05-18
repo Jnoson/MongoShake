@@ -6,7 +6,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/alibaba/MongoShake/v2/oplog"
+	"github.com/Jnoson/MongoShake/v2/oplog"
 )
 
 const (

@@ -3,10 +3,10 @@ package executor
 import (
 	"fmt"
 
-	conf "github.com/alibaba/MongoShake/v2/collector/configure"
-	"github.com/alibaba/MongoShake/v2/oplog"
+	conf "github.com/Jnoson/MongoShake/v2/collector/configure"
+	"github.com/Jnoson/MongoShake/v2/oplog"
 
-	utils "github.com/alibaba/MongoShake/v2/common"
+	utils "github.com/Jnoson/MongoShake/v2/common"
 	LOG "github.com/vinllen/log4go"
 	"github.com/vinllen/mgo"
 	"github.com/vinllen/mgo/bson"

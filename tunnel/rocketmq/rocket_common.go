@@ -1,13 +1,10 @@
-package kafka
+package rocketmq
 
 import (
 	"fmt"
+	"github.com/apache/rocketmq-client-go/v2/primitive"
 	"strings"
 	"time"
-
-	"github.com/Shopify/sarama"
-	utils "github.com/Jnoson/MongoShake/v2/common"
-	"github.com/rcrowley/go-metrics"
 )
 
 var (
@@ -25,23 +22,9 @@ type Message struct {
 }
 
 type Config struct {
-	Config *sarama.Config
+	Config *primitive.Interceptor
 }
 
-func NewConfig() *Config {
-	config := sarama.NewConfig()
-	config.Version = sarama.V0_10_0_0
-	config.MetricRegistry = metrics.NewRegistry()
-
-	config.Producer.Return.Errors = true
-	config.Producer.Return.Successes = true
-	config.Producer.Partitioner = sarama.NewManualPartitioner
-	config.Producer.MaxMessageBytes = 16*utils.MB + 2*utils.MB // 2MB for the reserve gap
-
-	return &Config{
-		Config: config,
-	}
-}
 
 // parse the address (topic@broker1,broker2,...)
 func parse(address string) (string, []string, error) {

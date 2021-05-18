@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/alibaba/MongoShake/v2/collector/transform"
-	"github.com/alibaba/MongoShake/v2/oplog"
+	"github.com/Jnoson/MongoShake/v2/collector/transform"
+	"github.com/Jnoson/MongoShake/v2/oplog"
 
 	"sync"
 

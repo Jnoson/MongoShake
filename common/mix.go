@@ -225,11 +225,11 @@ func Welcome() {
  \                             \        /   \___-=O'/|O'/__|
   \  MongoShake, Here we go !!  \_______\          / | /    )
   /                             /        '/-==__ _/__|/__=-|  -GM
- /        Alibaba Cloud        /         *             \ | |
+ /        Jnoson Cloud        /         *             \ | |
 /                             /                        (o)
 ------------------------------
 `
-	startMsg := "if you have any problem, please visit https://github.com/alibaba/MongoShake/wiki/FAQ"
+	startMsg := "if you have any problem, please visit https://github.com/Jnoson/MongoShake/wiki/FAQ"
 	LOG.Warn(fmt.Sprintf("\n%s\n%s\n", welcome, startMsg))
 }
 

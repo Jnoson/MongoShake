@@ -2,9 +2,9 @@ package docsyncer
 
 import (
 	"fmt"
+	conf "github.com/Jnoson/MongoShake/v2/collector/configure"
+	utils "github.com/Jnoson/MongoShake/v2/common"
 	"math"
-	conf "github.com/alibaba/MongoShake/v2/collector/configure"
-	utils "github.com/alibaba/MongoShake/v2/common"
 
 	"context"
 	"sync/atomic"

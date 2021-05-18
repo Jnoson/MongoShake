@@ -8,7 +8,7 @@ import (
 	"net"
 	"time"
 
-	utils "github.com/alibaba/MongoShake/v2/common"
+	utils "github.com/Jnoson/MongoShake/v2/common"
 
 	nimo "github.com/gugemichael/nimo4go"
 	LOG "github.com/vinllen/log4go"

@@ -1,7 +1,7 @@
 package module
 
 import (
-	"github.com/alibaba/MongoShake/v2/tunnel"
+	"github.com/Jnoson/MongoShake/v2/tunnel"
 
 	LOG "github.com/vinllen/log4go"
 )

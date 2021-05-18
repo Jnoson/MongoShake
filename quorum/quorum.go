@@ -7,7 +7,7 @@ import (
 	"os"
 	"time"
 
-	utils "github.com/alibaba/MongoShake/v2/common"
+	utils "github.com/Jnoson/MongoShake/v2/common"
 
 	LOG "github.com/vinllen/log4go"
 	"github.com/vinllen/mgo"

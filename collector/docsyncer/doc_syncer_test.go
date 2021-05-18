@@ -2,16 +2,16 @@ package docsyncer
 
 import (
 	"fmt"
-	"testing"
-	"strings"
 	"sort"
+	"strings"
+	"testing"
 
-	"github.com/alibaba/MongoShake/v2/common"
-	"github.com/alibaba/MongoShake/v2/collector/configure"
-	"github.com/alibaba/MongoShake/v2/collector/filter"
-	"github.com/alibaba/MongoShake/v2/sharding"
-	"github.com/alibaba/MongoShake/v2/collector/transform"
-	"github.com/alibaba/MongoShake/v2/unit_test_common"
+	"github.com/Jnoson/MongoShake/v2/collector/configure"
+	"github.com/Jnoson/MongoShake/v2/collector/filter"
+	"github.com/Jnoson/MongoShake/v2/collector/transform"
+	"github.com/Jnoson/MongoShake/v2/common"
+	"github.com/Jnoson/MongoShake/v2/sharding"
+	"github.com/Jnoson/MongoShake/v2/unit_test_common"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/vinllen/mgo/bson"

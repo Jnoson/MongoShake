@@ -2,8 +2,8 @@ This is a brief introduction of Mongo-Shake, please visit [english wiki](https:/
 
 *  [English document](https://github.com/aliyun/mongo-shake/wiki/MongoShake-Detailed-Documentation)
 *  [中文架构介绍文档](https://yq.aliyun.com/articles/603329)
-*  [第一次使用，如何配置](https://github.com/alibaba/MongoShake/wiki/%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%BF%E7%94%A8%EF%BC%8C%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E9%85%8D%E7%BD%AE%EF%BC%9F)
-*  [Tutorial](https://github.com/alibaba/MongoShake/wiki/tutorial-about-how-to-set-up)
+*  [第一次使用，如何配置](https://github.com/Jnoson/MongoShake/wiki/%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%BF%E7%94%A8%EF%BC%8C%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E9%85%8D%E7%BD%AE%EF%BC%9F)
+*  [Tutorial](https://github.com/Jnoson/MongoShake/wiki/tutorial-about-how-to-set-up)
 *  [FAQ document](https://github.com/aliyun/mongo-shake/wiki/FAQ)
 *  [MongoShake最佳实践](https://yq.aliyun.com/articles/719704)
 *  [Performance test document](https://github.com/aliyun/mongo-shake/wiki/MongoShake-Performance-Document)
@@ -11,7 +11,7 @@ This is a brief introduction of Mongo-Shake, please visit [english wiki](https:/
 
 # Mongo-Shake
 ---
-Mongo-Shake is developed and maintained by Nosql Team in Alibaba-Cloud.<br>
+Mongo-Shake is developed and maintained by Nosql Team in Jnoson-Cloud.<br>
 Mongo-Shake is a universal platform for services based on MongoDB's oplog. It fetches oplog from source mongo database, and replays in the target mongo database or sends to other ends in different tunnels. If the target side is mongo database which means replay oplog directly, it's like a syncing tool that used to copy data from source MongoDB to another MongoDB to build redundant replication or active-active replication. Except for this direct way, there are others tunnel types such like rpc, file, tcp, kafka. Receivers wrote by users must define their own interfaces to connecting to these tunnels respectively. Users can also define there own tunnel type which is pluggable. If connecting to a third-party message middleware like kafka, the consumer can get the subscriber data in an asynchronous way in pub/sub module flexibly.
 Here comes general data flow, <br>
 ![pic1](resources/dataflow.png)<br>
@@ -38,7 +38,7 @@ Starting with version 1.5, MongoShake supports syncing DDL by using global barri
 # Global ID
 ---
 In Aliyun internal version, global id(also called gid) is supported which marks the id of the database. It can be used to avoid loop when two databases become backup of each other. Mongo-Shake only fetches the oplogs equal to source database id, all the oplogs are be fetched when no gid gave. For current opensource version, it's not supported limited by the modification of MongoDB kernel.<br>
-If you want to build active-active replication without `gid` supported, please visit [FAQ document](https://github.com/alibaba/MongoShake/wiki/FAQ) to see more details.<br>
+If you want to build active-active replication without `gid` supported, please visit [FAQ document](https://github.com/Jnoson/MongoShake/wiki/FAQ) to see more details.<br>
 
 # Tunnel
 ---
@@ -84,7 +84,7 @@ Run `./bin/collector.darwin64` or `collector.linux64` which is built in OSX and 
 
 Or you can build mongo-shake yourself according to the following steps:
 
-*  git clone https://github.com/alibaba/MongoShake.git
+*  git clone https://github.com/Jnoson/MongoShake.git
 *  cd MongoShake
 *  make
 *  ./bin/collector -conf=conf/collector.conf 

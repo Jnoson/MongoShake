@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/binary"
 
-	"github.com/alibaba/MongoShake/v2/tunnel/kafka"
+	"github.com/Jnoson/MongoShake/v2/tunnel/kafka"
 
 	LOG "github.com/vinllen/log4go"
 )
