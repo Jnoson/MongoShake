@@ -29,6 +29,7 @@ type Configuration struct {
 	TunnelAddress               []string `config:"tunnel.address"`
 	TunnelMessage               string   `config:"tunnel.message"`
 	TunnelKafkaPartitionNumber  int      `config:"tunnel.kafka.partition_number"` // add v2.4.21
+	TunnelRocketMQRetryTimes    int      `config:"tunnel.rocketmq.retry.times"`
 	TunnelJsonFormat            string   `config:"tunnel.json.format"`
 	FilterNamespaceBlack        []string `config:"filter.namespace.black"`
 	FilterNamespaceWhite        []string `config:"filter.namespace.white"`
@@ -85,7 +86,7 @@ type Configuration struct {
 	IncrSyncReaderBufferTime      uint   `config:"incr_sync.reader.buffer_time"`
 	IncrSyncWorkerOplogCompressor string `config:"incr_sync.worker.oplog_compressor"` // not open to user since v2.4.21
 	IncrSyncTunnelKafkaDebug      string `config:"incr_sync.tunnel.kafka.debug"`      // add v2.4.21, point to file name
-
+	IncrSyncTunnelRocketMQDebug   string `config:"incr_sync.tunnel.rocketmq.debug"`
 	/*---------------------------------------------------------*/
 	// generated variables
 	Version         string // version

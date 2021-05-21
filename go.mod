@@ -15,4 +15,5 @@ require (
 	github.com/vinllen/mongo-go-driver v1.4.5-0.20210322082611-f29536671383
 	go.mongodb.org/mongo-driver v1.4.5
 	gopkg.in/mgo.v2 v2.0.0-20190816093944-a6b53ec6cb22
+	github.com/apache/rocketmq-client-go/v2 v2.1.0-rc3
 )

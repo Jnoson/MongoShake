@@ -41,12 +41,13 @@ const (
 	VarIncrSyncWorkerOplogCompressorSnappy  = "snappy"
 
 	// incr_sync.tunnel
-	VarTunnelDirect = "direct"
-	VarTunnelRpc    = "rpc"
-	VarTunnelFile   = "file"
-	VarTunnelTcp    = "tcp"
-	VarTunnelKafka  = "kafka"
-	VarTunnelMock   = "mock"
+	VarTunnelDirect   = "direct"
+	VarTunnelRpc      = "rpc"
+	VarTunnelFile     = "file"
+	VarTunnelTcp      = "tcp"
+	VarTunnelKafka    = "kafka"
+	VarTunnelRocketMQ = "rocketmq"
+	VarTunnelMock     = "mock"
 
 	// incr_sync.tunnel.message
 	VarTunnelMessageRaw  = "raw"

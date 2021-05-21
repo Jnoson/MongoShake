@@ -8,8 +8,8 @@ import (
 
 	"github.com/Jnoson/MongoShake/v2/oplog"
 
-	utils "github.com/Jnoson/MongoShake/v2/common"
 	conf "github.com/Jnoson/MongoShake/v2/collector/configure"
+	utils "github.com/Jnoson/MongoShake/v2/common"
 	"github.com/gugemichael/nimo4go"
 	LOG "github.com/vinllen/log4go"
 )
@@ -162,6 +162,11 @@ func (factory *WriterFactory) Create(address []string, workerId uint32) Writer {
 		return &KafkaWriter{
 			RemoteAddr:  address[0],
 			PartitionId: int(workerId) % conf.Options.TunnelKafkaPartitionNumber,
+		}
+	case utils.VarTunnelRocketMQ:
+		return &RocketmqWriter{
+			RemoteAddr: address[0],
+			retryTimes: conf.Options.TunnelRocketMQRetryTimes,
 		}
 	case utils.VarTunnelTcp:
 		return &TCPWriter{RemoteAddr: address[0]}

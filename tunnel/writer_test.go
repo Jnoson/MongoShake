@@ -2,13 +2,14 @@ package tunnel
 
 import (
 	"fmt"
-	"testing"
-	"math"
-	"github.com/Jnoson/MongoShake/v2/oplog"
-	"github.com/Jnoson/MongoShake/v2/common"
 	"github.com/Jnoson/MongoShake/v2/collector/configure"
+	"github.com/Jnoson/MongoShake/v2/common"
+	"github.com/Jnoson/MongoShake/v2/oplog"
+	"math"
+	"testing"
 
 	"github.com/stretchr/testify/assert"
+	LOG "github.com/vinllen/log4go"
 	"github.com/vinllen/mgo/bson"
 	bson2 "github.com/vinllen/mongo-go-driver/bson"
 )
@@ -16,9 +17,9 @@ import (
 // return $nr oplog inside
 func generateWMessage(val, nr int) *WMessage {
 	parsedLogs := make([]*oplog.PartialLog, 0, nr)
-	for i := val; i < val + nr; i++ {
+	for i := val; i < val+nr; i++ {
 		parsedLogs = append(parsedLogs, &oplog.PartialLog{
-			ParsedLog: oplog.ParsedLog {
+			ParsedLog: oplog.ParsedLog{
 				Operation: "i",
 				Object: bson.D{
 					// bson.DocElem{"_id", bson.ObjectId("123456789109")},
@@ -31,7 +32,7 @@ func generateWMessage(val, nr int) *WMessage {
 	return &WMessage{
 		TMessage: &TMessage{ // meaningless
 			RawLogs: [][]byte{{123}},
-			Tag: 0,
+			Tag:     0,
 		},
 		ParsedLogs: parsedLogs,
 	}
@@ -117,7 +118,7 @@ func TestKafkaWriter(t *testing.T) {
 		}
 
 		// pay attention: unitTestWriteKafkaChan may not be drain when run next case
-		for i := 0; i < writeNr + batchSize; i++ {
+		for i := 0; i < writeNr+batchSize; i++ {
 			data := <-unitTestWriteKafkaChan
 
 			outVal, err := parseJsonValue(data)
@@ -126,7 +127,8 @@ func TestKafkaWriter(t *testing.T) {
 		}
 
 		// drain all
-		X: for {
+	X:
+		for {
 			select {
 			case <-unitTestWriteKafkaChan:
 			default:
@@ -157,11 +159,11 @@ func TestKafkaWriter(t *testing.T) {
 		msg := &WMessage{
 			TMessage: &TMessage{
 				RawLogs: [][]byte{{123}},
-				Tag: 0,
+				Tag:     0,
 			},
-			ParsedLogs: []*oplog.PartialLog {
+			ParsedLogs: []*oplog.PartialLog{
 				{
-					ParsedLog: oplog.ParsedLog {
+					ParsedLog: oplog.ParsedLog{
 						Object: bson.D{
 							bson.DocElem{"$v", 1},
 							bson.DocElem{"$set", bson.M{
@@ -185,5 +187,40 @@ func TestKafkaWriter(t *testing.T) {
 		output := jsonParsedMap["o"].(bson2.A)[1].(map[string]interface{})["value"].(map[string]interface{})
 		assert.Equal(t, int32(0), output["sale_qty"], "should be equal")
 		assert.Equal(t, true, math.IsNaN(output["sale_value"].(float64)), "should be equal")
+	}
+}
+
+func TestRocketMQWriter(t *testing.T) {
+	var nr int
+	conf.Options.TunnelJsonFormat = "canonical_extended_json"
+
+	// test flag
+	unitTestWriteKafkaFlag = true
+	unitTestWriteRocketmqChan = make(chan []byte, 2048)
+
+	// simple test, only write 1
+	{
+		fmt.Printf("TestKafkaWriter case %d.\n", nr)
+		nr++
+
+		utils.InitialLogger("", "", "info", true, 1)
+
+		conf.Options.TunnelMessage = utils.VarTunnelMessageJson
+		conf.Options.IncrSyncTunnelWriteThread = 1
+		conf.Options.TunnelKafkaPartitionNumber = 1
+		conf.Options.IncrSyncWorker = 8
+
+		rocketWriter := &RocketmqWriter{
+			RemoteAddr: "192.168.199.207:9876",
+			retryTimes: 0,
+		}
+		ok := rocketWriter.Prepare()
+		LOG.Info("start rocketmq %s", ok)
+
+		msg := generateWMessage(1, 1)
+		LOG.Info("send resutl %s", msg)
+		rocketWriter.Send(msg)
+		rocketWriter.writeRocketMQ()
+
 	}
 }

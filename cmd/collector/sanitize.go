@@ -189,7 +189,7 @@ func checkDefaultValue() error {
 	}
 	if conf.Options.IncrSyncTunnelWriteThread == 0 {
 		conf.Options.IncrSyncTunnelWriteThread = conf.Options.IncrSyncWorker
-	} else if conf.Options.IncrSyncTunnelWriteThread % conf.Options.IncrSyncWorker != 0 {
+	} else if conf.Options.IncrSyncTunnelWriteThread%conf.Options.IncrSyncWorker != 0 {
 		return fmt.Errorf("incr_sync.tunnel.write_thread[%v] must be an interge multiple of incr_sync.worker[%v]",
 			conf.Options.IncrSyncTunnelWriteThread, conf.Options.IncrSyncWorker)
 	}
@@ -221,7 +221,8 @@ func checkDefaultValue() error {
 		conf.Options.Tunnel != utils.VarTunnelTcp &&
 		conf.Options.Tunnel != utils.VarTunnelFile &&
 		conf.Options.Tunnel != utils.VarTunnelKafka &&
-		conf.Options.Tunnel != utils.VarTunnelMock {
+		conf.Options.Tunnel != utils.VarTunnelMock &&
+		conf.Options.Tunnel != utils.VarTunnelRocketMQ {
 		return fmt.Errorf("incr_sync.tunnel in {direct, rpc, tcp, file, kafka, mock}")
 	}
 	if conf.Options.TunnelMessage == "" {
